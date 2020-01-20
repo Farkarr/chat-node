@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat socket.io</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    
+    <div class="chat-container">
+        <div class="chat-window">
+            <div class="chat-output"></div>
+            <div class="actions"></div>
+        </div>
+
+        <form>
+            <input type="text" class="username" placeholder="Escribe tu username">
+            <input type="text" class="message" placeholder="Escribe un mensaje">
+            <input type="submit" class="send" value="Enviar">
+        </form>
+    </div>  
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>
