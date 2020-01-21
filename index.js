@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const SocketIO = require("socket.io");
-const routes = require("./routes");
 const bodyParser = require("body-parser");
 
 //Settings
@@ -33,7 +32,7 @@ const io = SocketIO.listen(server);
 //Websockets
 io.on("connection", socket => {
     console.log("new connetcion", socket.id)
-    
+
     socket.on("message", data => {
         io.sockets.emit("message", data);
     });
@@ -41,5 +40,9 @@ io.on("connection", socket => {
     //broadcast sirve para enviar a todos menos al que esta emitinedo
     socket.on("typing", data => {
         socket.broadcast.emit("typing", data);
+    });
+
+    socket.on("image", (from, image) => {
+        io.sockets.emit("addImage", from, image);
     });
 });
